@@ -1,0 +1,15 @@
+[ignore]
+.*/node_modules/.*
+.*/.history/.*
+
+[include]
+
+[libs]
+
+[lints]
+all=error
+
+[options]
+all=true
+
+[strict]
