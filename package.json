@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "flow-bin": "^0.70.0",
+    "flow-typed": "^2.4.0",
     "jest": "^22.4.3"
   }
 }
