@@ -1,5 +1,5 @@
 {
-    "name": "test-plan",
+    "name": "test-planed",
     "version": "1.0.0",
     "description":
         "TestPlan automates functional unit testing by auto-mocking, auto-spying and loggin behaviour",
