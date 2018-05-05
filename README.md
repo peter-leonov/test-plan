@@ -7,7 +7,7 @@ It's a simpler version of [Introscope's Plan](https://github.com/peter-leonov/in
 In this example we (ab)use Dependency Injection to illustrate how ealy it is to test a function which side effects are tracked by DP functions. Here the idea of the `redux-saga-test-plan` shines greatly!
 
 ```js
-// Dependency Injection is abused for purposes of the example :)
+// abusing Dependency Injection to make side effects explicit
 function incrementComments(fetch, log, save, postId) {
     const post = fetch(`/posts/${postId}`);
     if (!post) return;
@@ -16,40 +16,70 @@ function incrementComments(fetch, log, save, postId) {
     save(post);
 }
 
-import plan from 'test-planed';
+const { plan } = require('.');
 describe('incrementComments', () => {
     it('increments existing posts', () => {
         const p = plan();
         incrementComments(
-            p.fetch(() => {
-                comments: 1;
-            }),
+            p.fetch(() => ({
+                comments: 1,
+            })),
             p.log(),
             p.save(),
             123,
         );
         expect(p()).toMatchSnapshot();
-        // This creates snapshot with:
-        // [
-        //     ['call', 'fetch', ['/posts/123']],
-        //     ['call', 'log', ['comment.inc', 123]],
-        //     ['call', 'save', [{ comments: 2 }]],
-        // ];
+        /*
+        [
+            [
+                "call",
+                "fetch",
+                [
+                "/posts/123",
+                ],
+            ],
+            [
+                "call",
+                "log",
+                [
+                "comment.inc",
+                123,
+                ],
+            ],
+            [
+                "call",
+                "save",
+                [
+                {
+                    "comments": 2,
+                },
+                ],
+            ],
+        ]
+        */
     });
 
     it('ignores non existing posts', () => {
-        const p = testPlan();
+        const p = plan();
         incrementComments(
             p.fetch(() => null),
             p.log(),
             p.save(),
-            123,
-        );
+            123);
         expect(p()).toMatchSnapshot();
-        // This creates snapshot with just:
-        // [
-        //     ['call', 'fetch', ['/posts/123']],
-        // ];
     });
+    /*
+    [
+        [
+            "call",
+            "fetch",
+            [
+                "/posts/123",
+            ],
+        ],
+    ]
+    */
 });
 ```
+
+See this example in action in [the spec](index.spec.js).
