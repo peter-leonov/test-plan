@@ -1,3 +1,11 @@
+/*::
+// $FlowFixMe
+declare var plan: any => any
+// $FlowFixMe
+declare var proxySpy: <V>(any, any, string, V) => V
+*/
+
+
 const proxySpy = (log, serialize, id, v) =>
     new Proxy(v, {
         apply(_, that, args) {
