@@ -28,3 +28,28 @@ describe('incrementComments', () => {
         expect(p()).toMatchSnapshot();
     });
 });
+
+function recipe(getBread, getButter, mix) {
+    const bread = getBread();
+    const butter = getButter();
+    return mix(butter, bread);
+}
+
+const { autoPlan } = require('.');
+describe('recipe', () => {
+    it('goes well', () => {
+        const wrapped = autoPlan(recipe);
+        const p = wrapped({ mix: (a, b) => [a, b] });
+        expect(p()).toMatchSnapshot();
+    });
+
+    it('catches a falling toast', () => {
+        const wrapped = autoPlan(recipe);
+        const p = wrapped({
+            mix: () => {
+                throw 'on the floor';
+            },
+        });
+        expect(p()).toMatchSnapshot();
+    });
+});

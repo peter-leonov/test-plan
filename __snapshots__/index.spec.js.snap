@@ -40,3 +40,66 @@ Array [
   ],
 ]
 `;
+
+exports[`recipe catches a falling toast 1`] = `
+Array [
+  Array [
+    "call",
+    "getBread",
+    Array [],
+  ],
+  Array [
+    "call",
+    "getButter",
+    Array [],
+  ],
+  Array [
+    "call",
+    "mix",
+    Array [
+      "getButter",
+      "getBread",
+    ],
+  ],
+  Array [
+    "call",
+    "throw",
+    Array [
+      "on the floor",
+    ],
+  ],
+]
+`;
+
+exports[`recipe goes well 1`] = `
+Array [
+  Array [
+    "call",
+    "getBread",
+    Array [],
+  ],
+  Array [
+    "call",
+    "getButter",
+    Array [],
+  ],
+  Array [
+    "call",
+    "mix",
+    Array [
+      "getButter",
+      "getBread",
+    ],
+  ],
+  Array [
+    "call",
+    "return",
+    Array [
+      Array [
+        "getButter",
+        "getBread",
+      ],
+    ],
+  ],
+]
+`;

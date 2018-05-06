@@ -10,7 +10,7 @@
     "scripts": {
         "test": "jest && flow check",
         "deploy":
-            "npm version patch && npm publish && git push && git push --tags"
+            "yarn test && npm version patch && npm publish && git push && git push --tags"
     },
     "devDependencies": {
         "flow-bin": "^0.70.0",
