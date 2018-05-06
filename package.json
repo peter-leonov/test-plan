@@ -1,16 +1,14 @@
 {
     "name": "@introscope/test-plan",
-    "version": "1.0.0",
-    "description":
-        "TestPlan automates functional unit testing by auto-mocking, auto-spying and loggin behaviour",
+    "version": "1.0.1",
+    "description": "TestPlan automates functional unit testing by auto-mocking, auto-spying and loggin behaviour",
     "main": "index.js",
     "repository": "git@github.com:peter-leonov/test-plan.git",
     "author": "Peter Leonov <gojpeg@gmail.com>",
     "license": "MIT",
     "scripts": {
         "test": "jest && flow check",
-        "deploy":
-            "yarn test && npm version patch && npm publish && git push && git push --tags"
+        "deploy": "yarn test && npm version patch && npm publish && git push && git push --tags"
     },
     "devDependencies": {
         "flow-bin": "^0.70.0",
