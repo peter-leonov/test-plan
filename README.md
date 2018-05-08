@@ -1,6 +1,6 @@
 # TestPlan
 
-It's a simpler version of Introscope's [SideShooter](https://github.com/peter-leonov/introscope/sideshooter) in case you do not need scope integration.
+It's a simpler version of Introscope's [EffectsLogger](https://github.com/peter-leonov/introscope#effectslogger) in case you do not need scope integration.
 
 If you know what a brilliant [redux-saga-test-plan](https://github.com/jfairbank/redux-saga-test-plan) is, then this TestPlan is just the same, but without redux and with [Jest snapshots](https://facebook.github.io/jest/docs/en/snapshot-testing.html).
 
