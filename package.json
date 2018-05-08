@@ -1,6 +1,6 @@
 {
     "name": "@introscope/test-plan",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "TestPlan automates functional unit testing by auto-mocking, auto-spying and loggin behaviour",
     "main": "index.js",
     "repository": "git@github.com:peter-leonov/test-plan.git",
